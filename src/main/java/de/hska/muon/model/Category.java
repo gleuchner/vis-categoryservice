@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "category")
 public class Category   {
 
-  @JsonProperty("categoryId")
+  @JsonProperty("id")
   @Id
   @GeneratedValue
   @Column(name = "categoryId")
