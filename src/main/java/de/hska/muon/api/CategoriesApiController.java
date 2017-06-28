@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -37,6 +38,7 @@ public class CategoriesApiController  {
         }
     }
 
+    @PreAuthorize("#oauth2.hasScope('write')")
     @RequestMapping(value = "/categories/{categoryId}",
             produces = { "application/json" },
             method = RequestMethod.DELETE)
@@ -54,6 +56,7 @@ public class CategoriesApiController  {
 
     }
 
+    @PreAuthorize("#oauth2.hasScope('write')")
     @RequestMapping(value = "/categories",
             produces = { "application/json" },
             method = RequestMethod.POST)
